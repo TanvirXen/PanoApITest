@@ -55,7 +55,17 @@ export default function ApiTest() {
       redirect: "follow",
     };
 
-    fetch("https://agsmcs.info/web/session/authenticate", requestOptions)
+    fetch("http://agsmcs.info/web/session/authenticate", requestOptions)
+      .then(async (response) => {
+        for(let entry of response.headers.entries()) {
+          console.log('header', entry);
+        }
+        let json = await response.headers.get('Set-Cookie');
+        console.log(json);
+      })
+      .then((result) => console.log(result))
+      .catch((error) => console.log("error", error));
+      fetch("http://66.228.54.131/web/session/authenticate", requestOptions)
       .then(async (response) => {
         for(let entry of response.headers.entries()) {
           console.log('header', entry);
