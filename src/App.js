@@ -55,7 +55,7 @@ export default function ApiTest() {
       redirect: "follow",
     };
 
-    fetch("http://agsmcs.info/web/session/authenticate", requestOptions)
+    fetch("https://agsmcs.info/web/session/authenticate", requestOptions)
       .then(async (response) => {
         for(let entry of response.headers.entries()) {
           console.log('header', entry);
