@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Cookies from "js-cookie";
 import axios from "axios";
 export default function ApiTest() {
-
+  baseurl ='https://agsmcs.info/'
   const [email, setemail] = useState("dvesdklvtmn@eurokool.com");
   async function signup() {
     var myHeaders = new Headers();
@@ -132,7 +132,7 @@ export default function ApiTest() {
       redirect: "follow",
     };
 
-    fetch("http://66.228.54.131/get_profile/JD-14-BD-00005", requestOptions)
+    fetch(`${baseurl}get_profile/JD-14-BD-00005`, requestOptions)
       .then((response) => response.text())
       .then((result) => console.log(result))
       .catch((error) => console.log("error", error));
