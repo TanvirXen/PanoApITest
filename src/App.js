@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Cookies from "js-cookie";
 import axios from "axios";
 export default function ApiTest() {
-  baseurl ='https://agsmcs.info/'
+  const baseurl ='https://agsmcs.info/'
   const [email, setemail] = useState("dvesdklvtmn@eurokool.com");
   async function signup() {
     var myHeaders = new Headers();
