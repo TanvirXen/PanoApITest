@@ -118,16 +118,13 @@ export default function ApiTest() {
   async function GetProfile() {
     var myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
-    myHeaders.append(
-      "Cookie",
-      "session_id=4d4f3c9cc2a849e4a1df189e02318fdfccd13b6d"
-    );
 
     var raw = JSON.stringify({});
 
     var requestOptions = {
       method: "POST",
       headers: myHeaders,
+      credentials:"include",
       body: raw,
       redirect: "follow",
     };
