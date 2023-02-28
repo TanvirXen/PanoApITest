@@ -48,7 +48,6 @@ export default function ApiTest() {
       credentials: 'include',
       headers:  {
         "Content-Type":"application/json",
-        'Cookie': 'session_id=' + "session_id"
       },
       body: raw,
       
@@ -67,10 +66,8 @@ export default function ApiTest() {
       .catch((error) => console.log("error", error));
   }
   async function CreateProfile() {
-   console.log( Cookies.get('hello'))
     var myHeaders = {
       "Content-Type": "application/json",
-      Cookie: "session_id=631ce13d474045c59c0e144462157a042787d5f2",
     };
 
     var raw = JSON.stringify({
@@ -107,10 +104,11 @@ export default function ApiTest() {
       method: "POST",
       headers: myHeaders,
       body: raw,
+      credentials:"include",
       redirect: "follow",
     };
     console.log(myHeaders)
-    fetch("http://66.228.54.131/create_profile", requestOptions)
+    fetch(`${baseurl}/create_profile`, requestOptions)
       .then((response) => response.text())
       .then((result) => console.log(result))
       .catch((error) => console.log("error", error));
