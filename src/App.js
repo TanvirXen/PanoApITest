@@ -135,10 +135,6 @@ export default function ApiTest() {
   async function UpdateProfile() {
     var myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
-    myHeaders.append(
-      "Cookie",
-      "session_id=4d4f3c9cc2a849e4a1df189e02318fdfccd13b6d"
-    );
 
     var raw = JSON.stringify({
       first_name: "John",
@@ -173,10 +169,11 @@ export default function ApiTest() {
     var requestOptions = {
       method: "POST",
       headers: myHeaders,
+      credentials:"include",
       body: raw,
     };
 
-    fetch("http://66.228.54.131/update_profile/JD-DH-BD-0003", requestOptions)
+    fetch(`${baseurl}update_profile/JD-DH-BD-0003`, requestOptions)
       .then((response) => response.text())
       .then((result) => console.log(result))
       .catch((error) => console.log("error", error));
@@ -184,10 +181,7 @@ export default function ApiTest() {
   async function onboarding_question() {
     var myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
-    myHeaders.append(
-      "Cookie",
-      "session_id=4d4f3c9cc2a849e4a1df189e02318fdfccd13b6d"
-    );
+
 
     var raw = JSON.stringify({
       ques_one: [
@@ -235,12 +229,13 @@ export default function ApiTest() {
     var requestOptions = {
       method: "POST",
       headers: myHeaders,
+      credentials:"include",
       body: raw,
       redirect: "follow",
     };
 
     fetch(
-      "http://66.228.54.131/onboarding_question/JD-14-BD-00005",
+      `${baseurl}onboarding_question/JD-14-BD-00005`,
       requestOptions
     )
       .then((response) => response.text())
@@ -250,10 +245,6 @@ export default function ApiTest() {
   async function statusCheck() {
     var myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
-    myHeaders.append(
-      "Cookie",
-      "session_id=4d4f3c9cc2a849e4a1df189e02318fdfccd13b6d"
-    );
 
     var raw = JSON.stringify({});
 
@@ -261,10 +252,11 @@ export default function ApiTest() {
       method: "POST",
       headers: myHeaders,
       body: raw,
+      credentials:"include",
       redirect: "follow",
     };
 
-    fetch("http://66.228.54.131/get_user_status/36", requestOptions)
+    fetch(`${baseurl}get_user_status/36`, requestOptions)
       .then((response) => response.text())
       .then((result) => console.log(result))
       .catch((error) => console.log("error", error));
@@ -272,10 +264,6 @@ export default function ApiTest() {
   async function GetPlan() {
     var myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
-    myHeaders.append(
-      "Cookie",
-      "session_id=4d4f3c9cc2a849e4a1df189e02318fdfccd13b6d"
-    );
 
     var raw = JSON.stringify({});
 
@@ -283,10 +271,11 @@ export default function ApiTest() {
       method: "POST",
       headers: myHeaders,
       body: raw,
+      credentials:"include",
       redirect: "follow",
     };
 
-    fetch("http://66.228.54.131/get_plans/JD-14-BD-00005", requestOptions)
+    fetch(`${baseurl}get_plans/JD-14-BD-00005`, requestOptions)
       .then((response) => response.text())
       .then((result) => console.log(result))
       .catch((error) => console.log("error", error));
@@ -294,49 +283,21 @@ export default function ApiTest() {
   async function currency() {
     var myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
-    myHeaders.append(
-      "Cookie",
-      "session_id=4d4f3c9cc2a849e4a1df189e02318fdfccd13b6d"
-    );
 
     var raw = JSON.stringify({});
 
     var requestOptions = {
       method: "POST",
       headers: myHeaders,
+      credentials:"include",
       body: raw,
     };
 
-    fetch("http://66.228.54.131/get_currencies", requestOptions)
+    fetch(`${baseurl}get_currencies`, requestOptions)
       .then((response) => response.text())
       .then((result) => console.log(result))
       .catch((error) => console.log("error", error));
   }
-  // async function AssesmentList() {
-  //   var myHeaders = new Headers();
-  //   myHeaders.append("Content-Type", "application/json");
-  //   myHeaders.append(
-  //     "Cookie",
-  //     "session_id=4d4f3c9cc2a849e4a1df189e02318fdfccd13b6d"
-  //   );
-
-  //   var raw = JSON.stringify({});
-
-  //   var requestOptions = {
-  //     method: "POST",
-  //     headers: myHeaders,
-  //     body: raw,
-  //     redirect: "follow",
-  //   };
-
-  //   fetch(
-  //     "http://66.228.54.131/get_assessments/JD-14-BD-00005",
-  //     requestOptions
-  //   )
-  //     .then((response) => response.text())
-  //     .then((result) => console.log(result))
-  //     .catch((error) => console.log("error", error));
-  // }
   async function MailSend() {
     var myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
